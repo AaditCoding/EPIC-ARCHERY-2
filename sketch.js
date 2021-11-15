@@ -21,7 +21,7 @@ function setup() {
   engine = Engine.create();
   world = engine.world;
 
-  angleMode(DEGREES);
+  //angleMode(DEGREES);
 
   var options = {
     isStatic: true
@@ -33,7 +33,9 @@ function setup() {
   player = Bodies.rectangle(250, playerBase.position.y - 160, 50, 180, options);
   World.add(world,player)
 
-  playerArcher = new PlayerArcher( 340, playerBase.position.y - 112, 120, 120 )
+ playerArcher = new PlayerArcher( 340, playerBase.position.y - 112, 120, 120 )
+
+  arrow = new PlayerArrow(playerArcher.body.position.x, playerArcher.body.position.y, 100,10)
 
   
 
@@ -47,6 +49,7 @@ function draw() {
   image(playerimage,player.position.x,player.position.y,50,180)
 
   playerArcher.display()
+  arrow.display()
 
   // Title
   fill("#FFFF");
